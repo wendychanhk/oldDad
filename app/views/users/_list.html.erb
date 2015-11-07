@@ -5,14 +5,12 @@
     <%= image_tag(user.avatar.url(:medium)) %>
     <div class="overlay"></div>
     <div class="text">
-      <p> <%= link_to user.first_name, "#", data: {toggle: "modal", target: "#myModal"+user.id.to_s} %><br><%= user.position%><br><%= user.company %></p>
+      <p> <%= link_to user.first_name, "#", data: {toggle: "modal", target: "#myModal"+user.id.to_s} %>
     </div>
   </div>
 </div> 
 <% end %>
 </div>
-
-
 
 
 <% @users.each do |user| %>
@@ -31,34 +29,20 @@
       <div class="modal-body">
 
         <div><span class="glyphicon glyphicon-user" aria-hidden="true"></span>     <%= user.first_name %> </div>
-        <br>
-        <div> <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>     <%= user.position %> </div>
-        <br>
-        <div> <span class="glyphicon glyphicon-home" aria-hidden="true"></span>     <%= user.company %></div>
-        <br>
+   
         <div> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>     <%= user.city %>, <%= user.country_code %></div>
-        <% user.skill.shift %>
+ 
         <br>
         <div><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>  
-          Expertise: <%= user.skill.join(" | ") %>
+           <%= user.interest.join(" | ") %>
         </div>
-        
-        <% user.need.shift %>
-        <br>
-        <div><span class="glyphicon glyphicon-wrench" aria-hidden="true"> </span>   
-         Under construction: <%= user.need.join(" | ") %>
-       </div>
+   
        <br>
-       <div><span class="glyphicon glyphicon-volume-up" aria-hidden="true"> </span>     <%= user.intro %></div>
+       <div><span class="glyphicon glyphicon-volume-up" aria-hidden="true"> </span>     <%= user.introduction %></div>
        <br>
        <br>
        <br>
-       <br>
-
-       <a class="twitter-timeline" href="https://twitter.com/"+ <%= user.screen_name %> data-widget-id="636167451466682369"    data-chrome="transparent nofooter noborders"data-screen-name= <%= user.screen_name%>></a>
-       <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-       <br>
-
+      
        <br>
 
      </div>

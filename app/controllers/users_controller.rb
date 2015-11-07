@@ -5,10 +5,9 @@ class UsersController < ApplicationController
   # GET /users
   def index
     @conversations = Conversation.involving(current_user).order("created_at DESC")
-  
-    @users = current_user.find_users_matches_interest 
- 
+    @users = User.all_except(current_user)
 end
+
 
   # GET /users/1
   def show
@@ -19,6 +18,7 @@ end
   # GET /users/new
   def new
     @user = User.new
+
   end
 
   # GET /users/1/edit

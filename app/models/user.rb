@@ -13,11 +13,6 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true, length: { maximum: 50 }
   validates :last_name, presence: true, length: { maximum: 50 }
-  validates :city, presence: true, length: { maximum: 50 }
-  validates :introduction, presence: true, length: { maximum: 1000 }
-  validates :country_code, presence: true
-  validates :birthday, presence: true
-  validates :avatar, presence: true
   validates :interest, presence: true
 
 
@@ -54,7 +49,9 @@ def find_users_matches_interest
 end
 
 
-
+def self.all_except(user)
+  where.not(id: user)
+end
 #def self.search(search)
 #  where("first_name ILIKE ? OR country_code ILIKE ? OR city ILIKE ? OR company ILIKE ? OR company ILIKE ? OR position ILIKE ? OR intro ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%") 
 
