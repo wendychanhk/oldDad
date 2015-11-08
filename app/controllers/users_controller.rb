@@ -1,5 +1,9 @@
+require "rubygems"
+require "braintree"
+
 class UsersController < ApplicationController
 	before_action :authenticate_user!
+
 
  #  named_scope :without_user, lambda{|user| user ? {:conditions => ["id != ?", user.id]} : {} }
   # GET /users
@@ -8,6 +12,18 @@ class UsersController < ApplicationController
     @users = User.all_except(current_user)
 end
 
+def clienttoken
+   @clientToken = Braintree::ClientToken.generate
+end 
+
+def checkout
+  nonce = params[:payment_method_nonce]
+
+  result = Braintree::Transaction.sale(
+  :amount => "10",
+  :payment_method_nonce => nonce
+)
+end
 
   # GET /users/1
   def show

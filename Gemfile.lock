@@ -41,6 +41,8 @@ GEM
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    braintree (2.53.0)
+      builder (>= 2.0.0)
     builder (3.2.2)
     byebug (6.0.2)
     carmen (1.0.2)
@@ -203,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  braintree
   byebug
   carmen-rails
   devise
