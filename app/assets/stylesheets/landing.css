@@ -1,0 +1,29 @@
+body {
+  width: 100%;
+}
+
+h1 {
+  /*font-size: 24vmax;*/
+  font-size: 2em;
+  /*font-size: 3vmin;*/
+}
+
+.heroimg {
+  background-image: url("../images/oldladieswlkinwithtext.png");
+  max-height: 100%;
+  background-size: 100%;
+  height: 52.0vw;
+  background-repeat: no-repeat;
+}
+
+#herotitle {
+padding-top: 19.0vw;
+}
+
+.contrastcorrect {
+  background-color:rgba(54, 54, 54, 0.4) ;
+}
+
+.white {
+  color: #ffffff;
+}
