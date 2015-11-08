@@ -15,8 +15,6 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true, length: { maximum: 50 }
   validates :interest, presence: true
 
-
-
   has_many :conversations, :foreign_key => :sender_id
 
 

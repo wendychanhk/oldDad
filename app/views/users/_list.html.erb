@@ -1,62 +1,23 @@
 <div id="owl-demo" class="owl-carousel">
- <% @users.each do |user| %>
+
  <div class="item lazyOwl"> 
+  <% current_user.interest.each do |i|  %>
+  <%  if i.present?  %>
   <div class="reveal">
-    <%= image_tag(user.avatar.url(:medium)) %>
+<%= image_tag("#{i}.jpg") %>
+
     <div class="overlay"></div>
     <div class="text">
-      <p> <%= link_to user.first_name, "#", data: {toggle: "modal", target: "#myModal"+user.id.to_s} %>
+      <p> <%= link_to i, "#" %>
+
     </div>
+      <% end %> 
+
   </div>
+      <% end %> 
+
 </div> 
-<% end %>
+
 </div>
 
 
-<% @users.each do |user| %>
-
-<div class="modal fade" id="myModal<%= user.id.to_s %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <%= button_to "Send Message", "#", "data-sid" => current_user.id, "data-rip" => user.id, 
-        :class => "btn btn-default right start-conversation", "data-dismiss"=>"modal" %>
-
-        <h4 class="modal-title" id="myModalLabel"><%= user.first_name %>'s Profile</h4>
-      </div>
-
-      <div class="modal-body">
-
-        <div><span class="glyphicon glyphicon-user" aria-hidden="true"></span>     <%= user.first_name %> </div>
-   
-        <div> <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>     <%= user.city %>, <%= user.country_code %></div>
- 
-        <br>
-        <div><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>  
-           <%= user.interest.join(" | ") %>
-        </div>
-   
-       <br>
-       <div><span class="glyphicon glyphicon-volume-up" aria-hidden="true"> </span>     <%= user.introduction %></div>
-       <br>
-       <br>
-       <br>
-      
-       <br>
-
-     </div>
-
-
-     <div class="modal-footer">
-       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-     </div>
-
-   </div>
-
-
- </div>
-</div>
-
-
-<% end %>
