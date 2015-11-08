@@ -10,11 +10,6 @@ class User < ActiveRecord::Base
   format: { with: VALID_EMAIL_REGEX },
   uniqueness: { case_sensitive: false }
 
-
-  validates :first_name, presence: true, length: { maximum: 50 }
-  validates :last_name, presence: true, length: { maximum: 50 }
-  validates :interest, presence: true
-
   has_many :conversations, :foreign_key => :sender_id
 
 

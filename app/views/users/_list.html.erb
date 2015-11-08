@@ -1,23 +1,50 @@
-<div id="owl-demo" class="owl-carousel">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
 
- <div class="item lazyOwl"> 
+<div id="dashboard" style="display: block;">
   <% current_user.interest.each do |i|  %>
   <%  if i.present?  %>
-  <div class="reveal">
-<%= image_tag("#{i}.jpg") %>
+ 
+<%=  link_to image_tag("#{i}.jpg", :class => "reveal"), "http://appear.in/chinwag-#{i}" %>
 
-    <div class="overlay"></div>
-    <div class="text">
-      <p> <%= link_to i, "#" %>
-
-    </div>
       <% end %> 
-
-  </div>
       <% end %> 
-
-</div> 
-
 </div>
 
+<img onclick="showinterestpage()" src="">
 
+<div id="interestpage" style="display: none;">
+  <div class="container">
+    <div class="row">
+        <div>
+          <h1>Pets</h1>
+        </div>
+    </div>
+    <div class="row">
+      <button onclick="openappear()" class="talknow">Talk about Pets</button>
+    </div>
+    <div class="row">
+      <p>This will take turn on your microphone and camera.</p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+
+
+$("#interestpage").click( 
+    function openappear() {
+      window.location.href = "http://appear.in"
+    }); 
+
+
+    function showinterestpage() {
+      $("#interestpage").css("display", "block");
+      $("#dashboard").css("display", "none");
+    }
+
+    function showdashboard() {
+      $("#interestpage").css("display", "none");
+      $("#dashboard").css("display", "block");
+    }
+
+  </script>
+</div>
